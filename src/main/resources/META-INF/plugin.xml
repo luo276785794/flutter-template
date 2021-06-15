@@ -1,19 +1,27 @@
 <idea-plugin>
-    <id>com.github.luo276785794.fluttertemplate</id>
+    <id>com.wenlong.template</id>
     <name>flutter-template</name>
     <vendor>luo276785794</vendor>
 
     <!-- Product and plugin compatibility requirements -->
     <!-- https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
     <depends>com.intellij.modules.platform</depends>
+    <depends>org.jetbrains.android</depends>
+    <depends>org.jetbrains.kotlin</depends>
+    <depends>org.jetbrains.dart</depends>
+    <depends>com.intellij.modules.java</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.github.luo276785794.fluttertemplate.services.MyApplicationService"/>
-        <projectService serviceImplementation="com.github.luo276785794.fluttertemplate.services.MyProjectService"/>
+        <applicationService serviceImplementation="com.wenlong.template.services.MyApplicationService"/>
+        <projectService serviceImplementation="com.wenlong.template.services.MyProjectService"/>
     </extensions>
 
     <applicationListeners>
-        <listener class="com.github.luo276785794.fluttertemplate.listeners.MyProjectManagerListener"
+        <listener class="com.wenlong.template.listeners.MyProjectManagerListener"
                   topic="com.intellij.openapi.project.ProjectManagerListener"/>
     </applicationListeners>
+
+    <extensions defaultExtensionNs="com.android.tools.idea.wizard.template">
+        <wizardTemplateProvider implementation="flutter.FlutterTemplateProviderImpl" />
+    </extensions>
 </idea-plugin>
